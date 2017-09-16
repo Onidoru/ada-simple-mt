@@ -194,7 +194,7 @@ package body Data is
 
   -- 1\ A  = B*MiN(C) *(MA*MD+MD)
   function Func1(generate : in Boolean) return Vector is
-    B, C : Vector;
+    A, B, C : Vector;
     MA, MD : Matrix;
   begin -- Func1
     if generate = True then
@@ -208,7 +208,8 @@ package body Data is
       Get(MA);
       Get(MD);
     end if;
-    return Multiply(Multiply(B, Min(C)), Add(Multiply(MA, MD), MD));
+    A := Multiply(Multiply(B, Min(C)), Add(Multiply(MA, MD), MD));
+    return A;
   end Func1;
 
   -- 2\ MG = TRANS(MK) *(MH*MF)
